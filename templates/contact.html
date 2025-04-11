@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon for browser tab -->
+    <link rel="icon" href="{% static 'logo1.png' %}" type="image/png">
+    <title>Contact</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden; /* Prevent horizontal scroll during the slide effect */
+        }
+
+        /* The sliding form container */
+        .contact-form {
+            width: 50%; /* Adjusted width for larger form */
+            position: absolute;
+            top: 50%;
+            left: -100%; /* Initially off-screen */
+            transform: translateY(-50%);
+            background-color: white;
+            padding: 30px; /* Increased padding for a more spacious feel */
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation to slide in the form */
+        .contact-form.slide-in {
+            left: 25%; /* Position it 25% from the left when it slides in */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Increased margin for spacing */
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+            display: block; /* Ensure labels are on their own line */
+            margin-bottom: 8px; /* Space between label and input */
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%; /* Full width of the container */
+            padding: 12px; /* Adjusted padding for larger inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Adjusted font size for better readability */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 45px; /* Increased height of the text area */
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #FF9900;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 14px 20px; /* Adjusted padding for larger button */
+            transition: background-color 0.3s ease;
+            width: 100%; /* Full width for the submit button */
+            border-radius: 4px;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #FF9900;
+        }
+
+        .form-group input[type="submit"]:focus {
+            outline: none;
+        }
+
+        /* Contact Information Styling */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            margin: 0 10px; /* Space between details */
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-info p strong {
+            color: #FF9900;
+        }
+
+        /* Styling for the "Back" link */
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Contact form container -->
+    <div class="contact-form" id="contactForm">
+        <h2>Contact Us</h2>
+        <form method="POST" action="/contact/">
+            {% csrf_token %} 
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send Message">
+            </div>
+        </form>
+
+        <!-- Contact Information Section (Now in Horizontal Line) -->
+        <div class="contact-info">
+            <p><strong>Name:</strong> Vamshi Munugala</p>
+            <p><strong>Phone No:</strong> 8143158903</p>
+            <p><strong>Location:</strong> Thukkuguda</p>
+        </div>
+
+        <!-- Back to Home Button -->
+        <div style="text-align: center;">
+            <a href="{% url 'index' %}" class="back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to trigger the sliding animation
+        window.onload = function() {
+            document.getElementById('contactForm').classList.add('slide-in');
+        }
+    </script>
+
+</body>
+</html>

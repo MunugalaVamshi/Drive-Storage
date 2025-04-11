@@ -1,0 +1,531 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding-top: 20px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #232f3e;
+    margin-top: -20px;
+    height: 48px;
+}
+
+.navbar-brand {
+    color: #ff9900 !important;
+    font-weight: bold;
+    font-size: 14px; /* Reduced font size */
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 12px; /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff9900;
+}
+
+/* Search Box */
+.search-container {
+    position: fixed; /* Ensure it's fixed in the viewport */
+    top: 55px; /* Position the box with respect to the top */
+    left: 6px; /* Position the box with respect to the left */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0px 12px;
+    width: 200px;
+    height: 34px;
+    max-width: 100%;
+    background-color: white;
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+    z-index: 1000; /* Make sure it stays on top */
+    overflow: hidden; /* Prevent scroll */
+}
+
+/* Blinking shadow effect on hover */
+.search-container:hover {
+    animation: blink-shadow 1s infinite; /* Add animation when hovered */
+}
+
+/* Keyframes for blinking shadow */
+@keyframes blink-shadow {
+    0% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+/* Search Input */
+.search-box {
+    flex-grow: 2;
+    height: 26px; /* Reduced height */
+    border: none;
+    outline: none;
+    font-size: 12px; /* Reduced font size */
+    padding: 0 8px;
+    border-radius: 24px;
+    background-color: transparent;
+    color: black;
+}
+/* Search Icon */
+.search-icon {
+    font-size: 16px; /* Reduced icon size */
+    color: #FF9900;
+    cursor: pointer;
+}
+
+/* search results*/
+.search-results {
+    margin-top: -44px;
+    margin-left: 28%;
+    width: 40%;
+}
+
+.file-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0; /* Reduced padding */
+    width: 70%;
+    margin: 0 auto;
+}
+
+.file-result a {
+    text-decoration: none;
+    color: black;
+    font-size: 12px; /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+/* Blinking effect on hover */
+@keyframes blink {
+    0% {
+        color: black;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: black;
+    }
+}
+
+
+.file-result a:hover {
+    animation: blink 1s infinite;
+}
+
+.file-result .icons {
+    display: flex;
+    gap: 8px; /* Reduced gap */
+}
+
+.file-result .icons i {
+    font-size: 16px; /* Reduced icon size */
+    cursor: pointer;
+    color: #FF9900;
+}
+
+/* For better responsiveness on smaller screens */
+@media (max-width: 768px) {
+    .search-results {
+        margin-left: 8%;
+        width: 80%;
+    }
+
+    .file-result {
+        width: 65%;
+    }
+}
+
+/* menu bar box */
+.dev-message {
+    position: fixed;
+    top: 16%;
+    left: 6px;
+    height: 493px; /* Reduced height */
+    width: 200px; /* Reduced width */
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 18px rgba(4, 4, 4, 0.1);
+    color: #000;
+    box-sizing: border-box;
+    font-size: 12px; /* Reduced font size */
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list .nav-link:hover {
+    color: #ff9900;
+}
+
+.nav-item {
+    margin: 25px 0; /* Reduced margin */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: 12px; /* Reduced font size */
+}
+
+.nav-link i {
+    margin-right: 6px; /* Reduced margin */
+}
+
+.upload-box button {
+    background-color: #ff9900;
+    border: none;
+    color: #fff;
+    padding: 8px 16px; /* Reduced padding */
+    margin-top: 3px;
+    margin-left: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; /* Reduced font size */
+}
+
+.upload-box button:hover {
+    background-color: #e68a00;
+}
+
+/* Uploaded files container displaying files */
+.file-container-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5 ,1fr);
+    gap: 6px; /* Reduced gap */
+    margin-top: 14px;
+    margin-left: 13%;
+}
+
+/* File box styling */
+.file-view {
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160px; /* Reduced width */
+    height: 160px; /* Reduced height */
+    margin-bottom: 12px; /* Reduced margin */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Zoom-in effect on hover */
+.file-view:hover {
+    transform: scale(1.05); /* Reduced zoom */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Text styling inside file boxes */
+.center {
+    text-align: center;
+}
+
+.file-name {
+    font-size: 10px; /* Reduced font size */
+    font-weight: bold;
+    color: #333;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    max-width: 130px; /* Reduced max width */
+}
+
+/* File link styling */
+.file-name a {
+    color: #232f3e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10px; /* Reduced font size */
+}
+
+.file-name a:hover {
+    color: #ff9900;
+}
+
+/* File actions (download, share, remove) */
+.file-actions {
+    margin-top: 6px; /* Reduced margin-top */
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.file-actions a {
+    color: #ff9900;
+    text-decoration: none;
+    font-size: 6px; /* Reduced font size */
+}
+
+.file-actions a:hover {
+    color: #ff6600;
+}
+
+/* Basic styling for the share options */
+.share-options {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    gap: 30px; /* Reduced gap */
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-left: 740px;
+    margin-top: -450px;
+    width: 380px; /* Reduced width */
+    height: 220px; /* Reduced height */
+}
+
+/* Style for each button */
+.share-options button {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    margin: 4px 0;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px; /* Reduced font size */
+}
+
+/* Hover effect for buttons */
+.share-options button:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/*  about Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    top: 105px;
+    border-radius: 4px;
+    width: 35%;
+    max-height: 70vh;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+}
+  /* Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 44px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+
+
+/* File container */
+.file-view {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 6px 0; /* Reduced margin */
+    padding: 8px;
+}
+
+/* File name styles */
+.file-name {
+    font-size: 12px; /* Reduced font size */
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.file-name i {
+    margin-right: 6px; /* Reduced margin */
+}
+
+/* File actions container - at the bottom */
+.file-actions {
+    display: flex;
+    gap: 8px; /* Reduced gap */
+    margin-top: auto;
+}
+
+.file-actions a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px; /* Reduced font size */
+}
+
+.file-actions a:hover {
+    color: #007bff;
+}
+
+/* General Styling for File Preview */
+.file-preview {
+    margin-top:30px;
+    max-width: 100%;
+    height: 160px; /* Reduced height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Image Preview */
+.file-preview img {
+    width: 100%;
+    height: 160px; /* Reduced height */
+    object-fit: contain;
+}
+
+/* Video Preview */
+.file-preview video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Audio Preview */
+.file-preview audio {
+    width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* PDF Preview (Iframe) */
+.file-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Handling non-previewable files */
+.file-preview.no-preview {
+    text-align: center;
+    font-size: 14px; /* Reduced font size */
+    color: #888;
+}
+
+/* Text File Preview */
+.file-preview pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f4f4f4;
+    padding: 8px;
+    border-radius: 5px;
+    font-family: monospace;
+    max-height: 280px; /* Reduced max height */
+    overflow-y: auto;
+}
+
+.file-preview {
+    margin-top: 8px; /* Reduced margin */
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+/* Styling for File Actions */
+.file-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px; /* Reduced margin */
+}
+
+/* Styling Share and Remove icons */
+.file-actions a {
+    color: #3f4347;
+    font-size: 16px; /* Reduced font size */
+    text-decoration: none;
+}
+
+.file-actions a:hover {
+    color: #FF9900;
+}
+
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.share-modal-content {
+    background: white;
+    padding: 16px; /* Reduced padding */
+    border-radius: 8px;
+    max-width: 380px; /* Reduced width */
+    width: 100%;
+    text-align: center;
+}
+
+.share-modal-content h3 {
+    margin-bottom: 12px; /* Reduced margin */
+}
+
+.share-button {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #FF9900;
+    border: none;
+    padding: 8px;
+    margin: 4px 0;
+    width: 100%;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.share-button i {
+    margin-right: 8px; /* Reduced margin */
+}
+
+.share-button:hover {
+    background-color: lightblue;
+}
